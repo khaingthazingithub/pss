@@ -25,7 +25,7 @@
                         <td>{{ $cartItem->name }}</td>
                         <td>{{ $cartItem->price }}</td>
                         <td>
-                            {!! Form::open(['route' => ['cart.update', $cartItem->rowId], 
+                            {!! Form::open(['route' => ['cart.update', $cartItem->rowId],
                             'method' => 'put']) !!}
                                 <input style="width: 40px;" type="text" class="text-center"
                                 value="{{ $cartItem->qty }}" name="qty">
@@ -39,11 +39,11 @@
                     <td></td>
                     <td>Grand Total : {{ Cart::subtotal() }}</td>
                     <td style="width: 200px;">Quantity : {{ Cart::count() }}</td>
-                </tr>           
+                </tr>
             </tbody>
         </table>
-        
-        <a href="{{ '/home' }}" class="btn btn-info mb-5">Continue Shopping</a>
+
+        <a href="{{ '/' }}" class="btn btn-info mb-5">Continue Shopping</a>
         <a href="{{ '/checkout' }}" class="btn btn-info mb-5 checkout" value="">Checking out</a>
 
     </div>

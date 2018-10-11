@@ -10,11 +10,6 @@ use Illuminate\Http\Request;
 
 class AddToCartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
     public function __construct()
     {
@@ -24,15 +19,11 @@ class AddToCartController extends Controller
     public function index()
     {
         //
-        
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create($id) 
+
+    public function create($id)
     {
         //
         $user_id = \Auth::user()->id;
@@ -53,23 +44,11 @@ class AddToCartController extends Controller
         return redirect('add-to-cart/show/' . $user_id);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\AddToCart  $addToCart
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $cart_products = AddToCart::where('user_id', $id)->get();
@@ -77,35 +56,16 @@ class AddToCartController extends Controller
         return view('add-to-cart', compact('cart_products'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\AddToCart  $addToCart
-     * @return \Illuminate\Http\Response
-     */
     public function edit(AddToCart $addToCart)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\AddToCart  $addToCart
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, AddToCart $addToCart)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\AddToCart  $addToCart
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(AddToCart $addToCart)
     {
         //

@@ -193,6 +193,11 @@
 .shopnow-btn {
      border-radius: 20px;
 }
+
+.shopnow-btn>a {
+     text-decoration: none;
+     color: white !important;
+}
 /* end navigation */
 
 /*start smart phone*/

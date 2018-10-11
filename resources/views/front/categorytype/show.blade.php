@@ -1,4 +1,4 @@
-@extends('layouts.master')	
+@extends('layouts.master')
 
 @section('title', 'Smart Phone')
 
@@ -13,7 +13,7 @@
 	}
 </style>
 
-<?php 
+<?php
 	$enc_category = Illuminate\Support\Facades\Crypt::encrypt($dec_categorytype);
 ?>
 
@@ -35,7 +35,7 @@
 						<div class="card-body pt-3">
 							<ul>
                                 @foreach($unique_brand as $u_brand)
-									<?php 
+									<?php
 										$enc_brand = Illuminate\Support\Facades\Crypt::encrypt($u_brand['brand']);
 									?>
 
@@ -61,7 +61,7 @@
 					</div>
 					<div class="collapse" id="price">
 						<div class="card-body pt-3">
-							<?php 
+							<?php
 								$price_array = [];
 							?>
 							@foreach($new_collection as $new_col)
@@ -104,12 +104,12 @@
 									}
 								?>
 							@endforeach
-							<?php 
+							<?php
 								$unique_parray = array_unique($price_array);
 							?>
 							<ul>
 								@foreach($unique_parray as $u_parray)
-									<?php 
+									<?php
 										$enc_price = $enc_brand = Illuminate\Support\Facades\Crypt::encrypt($u_parray);
 									?>
 									<li><a href="{{ url('/show/' . $enc_category . '/price/' . $enc_price) }}">
@@ -132,7 +132,7 @@
 							<div class="card-body pt-3">
 								<ul>
 									@foreach($unique_category as $u_category)
-										<?php 
+										<?php
 											$enc_ucategory = Illuminate\Support\Facades\Crypt::encrypt($u_category['category']);
 										?>
 									<li><a href="{{ url('/show/' . $enc_category . '/' . $enc_ucategory) }}">{{ $u_category['category'] }}</a></li>
@@ -155,7 +155,7 @@
 							<div class="card-body pt-3">
 								<ul>
 									@foreach($unique_category as $u_category)
-									<?php 
+									<?php
 										$enc_ucategory = Illuminate\Support\Facades\Crypt::encrypt($u_category['category']);
 									?>
 									<li><a href="{{ url('/show/' . $enc_category . '/' . $enc_ucategory) }}">{{ $u_category['category'] }}</a></li>
@@ -170,7 +170,7 @@
 			</div>
 		</div>
 
-		<div class="col-md-9">	
+		<div class="col-md-9">
 
 			<div class="row">
 				@foreach($new_collection as $new_col)
@@ -190,13 +190,13 @@
 					<div class="col-md-4">
 						<div class="card text-center parent_card mt-3">
   							<div class="image_hover">
-  								<img class="img-fluid image_design" src="{{ asset('/storage/images/' . 
+  								<img class="img-fluid image_design" src="{{ asset('/storage/images/' .
 								  $new_col['image']) }}">
   							</div>
-  							<div class="content_price">{{ $new_col['brand'] }} 
+  							<div class="content_price">{{ $new_col['brand'] }}
 							  {{ $new_col['model'] }} {{ $price }}</div>	<br>
 
-							<div class="card-block quick_hover">			
+							<div class="card-block quick_hover">
 								<span class="fa fa-heart des pull-left" style="font-size: 13px; color:green;">
 									<a href="{{ '/wishlist-product/' . $id }}" style="color:green
 									; text-decoration:none;"> Wishlist</a>
@@ -206,14 +206,14 @@
 									; text-decoration:none;"> Detail</a>
 								</span>
 								<br>
-								<a href="route('cart.edit', $id)" class="btn btndesign">
+								<a href="{{ route('cart.edit', $new_col['id']) }}" class="btn btndesign">
 								<i class="fa fa-shopping-cart">&nbsp;&nbsp;&nbsp;Add To Cart</i>
 								</a>
 						    </div>
 						</div>
 					</div>
 				@endforeach
-			</div>				
+			</div>
 		</div>
 	</div>
 </div>

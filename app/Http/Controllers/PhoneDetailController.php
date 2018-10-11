@@ -158,7 +158,7 @@ class PhoneDetailController extends Controller
                ]);
           }
           $real_related_products = $related_products->unique('model');
-          return view('detail', compact('category_type', 'detail', 'real_related_products', 'colors'));
+          return view('detail', compact('category_type', 'detail', 'real_related_products', 'colors', 'id'));
      }
 
      public function edit($id)

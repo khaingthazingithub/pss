@@ -36,7 +36,7 @@
 
 			<div class="col-md-6">
 				<div class="main-image">
-					<img src="{{ asset('/storage/images/' . $detail->image) }}" alt="" 
+					<img src="{{ asset('/storage/images/' . $detail->image) }}" alt=""
 					class="img-fluid">
 				</div>
 				<br>
@@ -51,7 +51,7 @@
 			</div>
 
 			<div class="col-md-6">
-				<div class="container row justify-content-between">
+				<!-- <div class="container row justify-content-between">
 					<div>
 						<a href="">+ ADD TO COMPARE</a>
 						&nbsp;
@@ -63,25 +63,25 @@
 						&nbsp;
 						<a href="" class="fa fa-twitter"> Twitter</a>
 					</div>
-				</div>
+				</div> -->
 				<hr>
 
 				<div class="container row justify-content-between">
 					<span>price {{ $detail->price }}</span>
-					<a href="{{ route('cart.edit', $detail->id) }}" class="btn btn-success">Add To Cart</a>
+					<a href="{{ route('cart.edit', $id ) }}" class="btn btn-success">Add To Cart</a>
 				</div>
 
-				
+
 				<div id="toggle-parent">
-					
+
 					<!-- <div class="btn-group"> -->
 						<div class="card border-0 mt-2">
 							<div class="card-header border-0 mb-2">
-								<button class="btn btn-success detail-btn" 
-								data-toggle="collapse" data-target="#detail" 
+								<button class="btn btn-success detail-btn"
+								data-toggle="collapse" data-target="#detail"
 								data-parent="#toggle-parent">Detail</button>
 
-								<button class="btn btn-success" data-toggle="collapse" 
+								<button class="btn btn-success" data-toggle="collapse"
 								data-target="#advantages" data-parent="#toggle-parent">Advantages</button>
 							</div>
 							<div class="collapse show" id="detail">
@@ -178,7 +178,7 @@
 											</tr>
 											@endif
 										</tbody>
-									</table>	
+									</table>
 								</div>
 							</div>
 						</div>
@@ -189,7 +189,7 @@
 								<div class="card-body">
 
 									<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet commodi est vitae debitis quis atque sunt. Nemo aliquam hic, enim incidunt doloremque illo natus cupiditate saepe perferendis, nam fugiat!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi obcaecati ab est vero voluptatibus illum labore dolorem esse, in itaque dolores quisquam, deleniti odio ad possimus eaque minima perspiciatis et.</p>
-									
+
 								</div>
 							</div>
 
@@ -215,7 +215,7 @@
 													<span>{{ $real_related_product['brand'] }}</span>/<span>{{ $real_related_product['model'] }}</span>
 												</div>
 											</div>
-										@endforeach	
+										@endforeach
 									</div>
 								</div>
 							</div>
@@ -230,7 +230,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 
 		</div>

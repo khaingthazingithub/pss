@@ -54,7 +54,7 @@
         <div class="text col-md-6 wow slideInRight">
           <h6 class="wow slideInRight slide-htext" data-wow-iteration="1" data-wow-duration="0.3s">Smart Phone's Trend</h6>
           <p class="wow slideInRight slide-ptext" data-wow-iteration="1" data-wow-duration="0.8s">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-          <button class="wow slideInRight btn btn-outline-secondary shopnow-btn" data-wow-iteration="1" data-wow-duration="1.2s">Shop Now</button>
+          <button class="wow slideInRight btn btn-outline-secondary shopnow-btn" data-wow-iteration="1" data-wow-duration="1.2s"><a href="#latest">Shop Now</a></button>
         </div>
       </div>
     </div>
@@ -66,7 +66,7 @@
         <div class="text col-md-6 wow slideInRight">
           <h6 class="wow slideInRight slide-htext" data-wow-iteration="1" data-wow-duration="0.3s">Mobile Phone's Trend</h6>
           <p class="wow slideInRight slide-ptext" data-wow-iteration="1" data-wow-duration="0.8s">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-          <button class="wow slideInRight btn btn-outline-secondary shopnow-btn" data-wow-iteration="1.5s" data-wow-duration="1.2s">Shop Now</button>
+          <button class="wow slideInRight btn btn-outline-secondary shopnow-btn" data-wow-iteration="1" data-wow-duration="1.2s"><a href="#latest">Shop Now</a></button>
         </div>
       </div>
     </div>
@@ -78,7 +78,7 @@
         <div class="text col-md-6">
           <h6 class="wow slideInRight slide-htext" data-wow-iteration="1" data-wow-duration="0.3s">Accessory's Trend</h6>
           <p class="wow slideInRight slide-ptext" data-wow-iteration="1" data-wow-duration="0.8s">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-          <button class="wow slideInRight btn btn-outline-secondary shopnow-btn" data-wow-iteration="1" data-wow-duration="1.2s">Shop Now</button>
+          <button class="wow slideInRight btn btn-outline-secondary shopnow-btn" data-wow-iteration="1" data-wow-duration="1.2s"><a href="#latest">Shop Now</a></button>
         </div>
       </div>
     </div>
@@ -112,7 +112,7 @@
 				}
 			?>
 			@foreach($categoryname as $category)
-			<?php 
+			<?php
 				$enc_category = Crypt::encrypt($category);
 			?>
 			<div class="col-md-12 col-lg-4 col-xl-4">
@@ -134,14 +134,14 @@
 	</div>
 
 
-	<div class="container-fluid latest-product">
+	<div class="container-fluid latest-product" id="latest">
 		<h2 class="sub-h text-center pt-3">Latest Products</h2>
 		<div class="heading-b text-center pb-4">
 			<img src="{{ asset('image/border.png') }}" alt="" style="width: 300px";>
 		</div>
 		<div class="row">
 			@foreach($latest_products as $latest_product)
-				<?php 
+				<?php
 
 					$price = \DB::table('phone_details')->where('model', $latest_product['model'])
 					->where('color', $latest_product['color'])->value('price');
@@ -152,7 +152,7 @@
 				<div class="col-sm-6 col-md-3 mb-3">
 					<div class="card latest border-0 latest-card">
 						<div class="card-body text-center pb-3">
-							<img src="{{ '../../storage/images/'.$latest_product->image }}" 
+							<img src="{{ '../../storage/images/'.$latest_product->image }}"
 							alt="" class="img-fluid">
 							<hr>
 							<div class="row container justify-content-between m-0">
@@ -188,7 +188,7 @@
 		<div class="discount-text text-center">
 			<!-- <span class="beautiful-font">Discount For This Month</span> -->
 		</div>
-		
+
 	</div>
 
 	<div class="container-fluid pb-5 popular">
@@ -198,7 +198,7 @@
 		</div>
 		<div class="row ltproduct">
 			@foreach($popular_products as $popular_product)
-				<?php 
+				<?php
 					$id = $popular_product['id'];
 				?>
 				<div class="col-sm-6 col-md-3 mb-3">
@@ -243,7 +243,7 @@
 		</div>
 		<div class="row">
 			@foreach($feature_products as $feature_product)
-			<?php 
+			<?php
 				$price = \DB::table('featured_details')->where('model', $feature_product->model)
 				->where('color', $feature_product->color)->value('price');
 			?>
@@ -348,7 +348,7 @@
 		  			<div class="col-lg-2 col-md-4 col-sm-6 text-center mb-3">
 		  				<img class="logo" src="{{ asset('image/logo4.jpg') }}">
 		  			</div>
-				</div>	  			
+				</div>
 			</div>
 			<a href="#mySlide" class="carousel-control-prev" data-slide="prev">
 				<i class="fa fa-arrow-circle-left fa-3x"></i>

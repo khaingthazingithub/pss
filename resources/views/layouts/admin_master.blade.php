@@ -19,7 +19,7 @@
 
           <header class="main-header">
                <!-- Logo -->
-               <a href="/home" class="logo">
+               <a href="/" class="logo">
                     <span class="logo-lg"><b>HOME PAGE</b></span>
                </a>
 

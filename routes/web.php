@@ -16,11 +16,11 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 //Permission
 
-Route::resource('permissions', 'PermissionController');
+Route::resource('/permissions', 'PermissionController');
 
-Route::resource('roles', 'RoleController');
+Route::resource('/roles', 'RoleController');
 
-Route::resource('roleusers', 'RoleUserController');
+Route::resource('/roleusers', 'RoleUserController');
 
 // User
 
@@ -36,7 +36,7 @@ Auth::routes();
 //Phone Brand
 
 Route::resource('/phonebrands', 'PhoneBrandController');
-Route::get('phonebrands-data', 'PhoneBrandController@data')->name('phonebrands.data');
+Route::get('/phonebrands-data', 'PhoneBrandController@data')->name('phonebrands.data');
 
 // Category Type
 
@@ -46,40 +46,40 @@ Route::get('/categorytypes-data', 'CategoryTypeController@data')->name('category
 //Category
 
 Route::resource('/categories', 'CategoryController');
-Route::get('categories-data', 'CategoryController@data')->name('categories.data');
+Route::get('/categories-data', 'CategoryController@data')->name('categories.data');
 
 //Phone Detail
 
 Route::resource('/phonedetails', 'PhoneDetailController');
 Route::get('/phonedetails/{id}/edit', 'PhoneDetailController@edit');
 Route::post('/phonedetails/{id}/edit', 'PhoneDetailController@update');
-Route::get('phonedetails-data', 'PhoneDetailController@data')->name('phonedetails.data');
+Route::get('/phonedetails-data', 'PhoneDetailController@data')->name('phonedetails.data');
 Route::get('/phonedetails/getmodel/{brand}', 'PhoneDetailController@getPhoneBrands');
 
 //Feature detail
 
 Route::resource('/featuredetails', 'FeaturedDetailController');
-Route::get('featuredetails-data', 'FeaturedDetailController@data')
+Route::get('/featuredetails-data', 'FeaturedDetailController@data')
 ->name('featuredetails.data');
 
 //Phone Model
 
 Route::resource('/phonemodels', 'PhoneModelController');
-Route::get('phonemodels-data', 'PhoneModelController@data')->name('phonemodels.data');
+Route::get('/phonemodels-data', 'PhoneModelController@data')->name('phonemodels.data');
 
 //Service Product
 
-Route::resource('serviceproducts', 'ServiceProductController');
-Route::get('serviceproducts-data', 'ServiceProductController@data')->name('serviceproducts.data');
-Route::get('openning_cost/{model}/{color}', 'CostController@addOpenningCost');
+Route::resource('/serviceproducts', 'ServiceProductController');
+Route::get('/serviceproducts-data', 'ServiceProductController@data')->name('serviceproducts.data');
+Route::get('/openning_cost/{model}/{color}', 'CostController@addOpenningCost');
 
 //Phone Service
 
 Route::resource('/phoneservices', 'PhoneServiceController');
 Route::get('/phoneservices/{id}/print', 'PhoneServiceController@print');
 Route::get('/phoneservices/{id}/finish', 'PhoneServiceController@finish');
-Route::get('phoneservices-data', 'PhoneServiceController@data')->name('phoneservices.data');
-Route::get('phoneservices/getmodel/{id}', 'PhoneServiceController@getPhoneModels');
+Route::get('/phoneservices-data', 'PhoneServiceController@data')->name('phoneservices.data');
+Route::get('/phoneservices/getmodel/{id}', 'PhoneServiceController@getPhoneModels');
 
 //Done Service
 
@@ -88,75 +88,75 @@ Route::get('/doneservices-data', 'CustomerServiceController@data')->name('donese
 
 //Cost
 
-Route::resource('costs', 'CostController');
-Route::get('costs-data', 'CostController@data')->name('costs.data');
+Route::resource('/costs', 'CostController');
+Route::get('/costs-data', 'CostController@data')->name('costs.data');
 Route::get('/costs/getmodel/{brand}', 'CostController@getModel');
 
-Route::get('serviceprofit-for/{my}', 'CostController@getProfitForService');
-Route::get('saleprofit-for/{my}', 'CostController@getProfitForSale');
-Route::get('totalprofit-for/{my}', 'CostController@getTotalProfit');
+Route::get('/serviceprofit-for/{my}', 'CostController@getProfitForService');
+Route::get('/saleprofit-for/{my}', 'CostController@getProfitForSale');
+Route::get('/totalprofit-for/{my}', 'CostController@getTotalProfit');
 
 Route::get('/list-by-year', 'CostController@showIndexYear');
 Route::get('/list-by-year-data', 'CostController@data');
 
-Route::get('serviceprofit-for-year/{my}', 'CostController@getServiceProfitByYear');
-Route::get('saleprofit-for-year/{my}', 'CostController@getSaleProfitByYear');
-Route::get('totalprofit-for-year/{my}', 'CostController@getTotalProfitByYear');
+Route::get('/serviceprofit-for-year/{my}', 'CostController@getServiceProfitByYear');
+Route::get('/saleprofit-for-year/{my}', 'CostController@getSaleProfitByYear');
+Route::get('/totalprofit-for-year/{my}', 'CostController@getTotalProfitByYear');
 Route::get('/costs/getcategory/{categorytype}', 'CostController@getCategory');
 
 // Cost for Service
 
-Route::get('servicecosts', 'CostController@servicecostIndex')->name('servicecosts');
-Route::get('servicecosts-data', 'CostController@servicecost')->name('servicecosts.data');
+Route::get('/servicecosts', 'CostController@servicecostIndex')->name('servicecosts');
+Route::get('/servicecosts-data', 'CostController@servicecost')->name('servicecosts.data');
 
 
 
 
 // Sale Product
 
-Route::get('saleproducts', 'SaleProductController@index');
-Route::get('saleproducts-data', 'SaleProductController@data')->name('saleproducts.data');
-Route::get('add_openning_cost/{model}/{color}', 'SaleProductController@addOpenningCost');
+Route::get('/saleproducts', 'SaleProductController@index');
+Route::get('/saleproducts-data', 'SaleProductController@data')->name('saleproducts.data');
+Route::get('/add_openning_cost/{model}/{color}', 'SaleProductController@addOpenningCost');
 
 // Cost for Sale
 
-Route::get('salecosts', 'CostController@salecostIndex')->name('salecosts');
-Route::get('salecosts-data', 'CostController@salecost')->name('salecosts.data');
+Route::get('/salecosts', 'CostController@salecostIndex')->name('salecosts');
+Route::get('/salecosts-data', 'CostController@salecost')->name('salecosts.data');
 
 // Other Cost
 
-Route::resource('othercosts', 'OtherCostController');
-Route::get('othercosts-data', 'OtherCostController@data')->name('othercosts.data');
+Route::resource('/othercosts', 'OtherCostController');
+Route::get('/othercosts-data', 'OtherCostController@data')->name('othercosts.data');
 
 
 //Department
 
-Route::resource('departments', 'DepartmentController');
-Route::get('departments-data', 'DepartmentController@data')->name('departments.data');
+Route::resource('/departments', 'DepartmentController');
+Route::get('/departments-data', 'DepartmentController@data')->name('departments.data');
 
 
 //Employee
 
-Route::resource('employees', 'EmployeeController');
-Route::get('employee_list', 'EmployeeController@showEmpList');
-Route::get('employees-data', 'EmployeeController@data')->name('employees.data');
-Route::get('absent/{id}', 'AbsentController@store');
+Route::resource('/employees', 'EmployeeController');
+Route::get('/employee_list', 'EmployeeController@showEmpList');
+Route::get('/employees-data', 'EmployeeController@data')->name('employees.data');
+Route::get('/absent/{id}', 'AbsentController@store');
 
 //Status
 
-Route::resource('status', 'StatusController');
-Route::get('status-data', 'StatusController@data')->name('status.data');
+Route::resource('/status', 'StatusController');
+Route::get('/status-data', 'StatusController@data')->name('status.data');
 
 //Salary
 
-Route::resource('salaries', 'SalaryController');
-Route::get('salaries-data', 'SalaryController@data')->name('salaries.data');
+Route::resource('/salaries', 'SalaryController');
+Route::get('/salaries-data', 'SalaryController@data')->name('salaries.data');
 
 //Employee Salary
 
-Route::resource('employeesalaries', 'EmployeeSalaryController');
-Route::get('salary/store', 'EmployeeSalaryController@store');
-Route::get('employeesalaries-data', 'EmployeeSalaryController@data')->name('employeesalaries.data');
+Route::resource('/employeesalaries', 'EmployeeSalaryController');
+Route::get('/salary/store', 'EmployeeSalaryController@store');
+Route::get('/employeesalaries-data', 'EmployeeSalaryController@data')->name('employeesalaries.data');
 Route::get('/employeesalaries-for/{my}', 'EmployeeSalaryController@show');
 
 //Search
@@ -181,15 +181,15 @@ Route::get('/', 'HomeController@index');
 
 //Navigation
 
-Route::get('categorytype/{name}', 'CategoryTypeController@show');
+Route::get('/categorytype/{name}', 'CategoryTypeController@show');
 
 //Datas of Category and Brand Pair
 
-Route::get('show/{category}/{name}', 'CategoryTypeController@showData');
+Route::get('/show/{category}/{name}', 'CategoryTypeController@showData');
 
 // Data of each price
 
-Route::get('show/{category}/price/{price}', 'CategoryTypeController@showDataAsPrice');
+Route::get('/show/{category}/price/{price}', 'CategoryTypeController@showDataAsPrice');
 
 // Add to cart
 
@@ -222,28 +222,28 @@ Route::get('/wishlist/checkout', 'WishlistController@buyFromWishlist');
 
 //About Page
 
-Route::get('about', function() {
+Route::get('/about', function() {
 	return view('about');
 })->name('about');
 
 //Contact Page;
 
-Route::get('contact', function() {
+Route::get('/contact', function() {
 	return view('contact');
 })->name('contact');
 
 //Detail Page
 
-Route::get('detail/{id}', 'PhoneDetailController@show');
+Route::get('/detail/{id}', 'PhoneDetailController@show');
 
 
 //Service Model
 
-Route::resource('servicemodels', 'ServiceModelController');
-Route::get('servicemodels-data', 'ServiceModelController@data')->name('servicemodels.data');
+Route::resource('/servicemodels', 'ServiceModelController');
+Route::get('/servicemodels-data', 'ServiceModelController@data')->name('servicemodels.data');
 
 
-Route::get('btn/show', function() {
+Route::get('/btn/show', function() {
 	$date = Carbon::now();
 	$day = Carbon::parse($date)->format('d');
 	return response()->json($day);

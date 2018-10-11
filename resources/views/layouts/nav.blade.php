@@ -96,13 +96,13 @@
                     <span class="navbar-toggler-icon"></span>
                </button>
 
-               <a href="#" class="navbar-brand nav-brand">Brand</a>
+               <a href="/" class="navbar-brand nav-brand">Our Team</a>
 
                <div class="collapse row justify-content-between navbar-collapse navigation" id="myNav">
                     <!-- <a href="#">Libran</a> -->
                     <ul class="navbar-nav">
                          <li class="nav-item">
-                              <a href="{{ url('/home') }}" class="nav-link">Home</a>
+                              <a href="{{ url('/') }}" class="nav-link">Home</a>
                          </li>
                          <?php
                          use App\CategoryType;
