@@ -1,4 +1,4 @@
-@extends('layouts.master')	
+@extends('layouts.master')
 
 @section('title', 'Smart Phone')
 
@@ -13,7 +13,7 @@
 	}
 </style>
 
-<?php 
+<?php
 	$enc_category = Illuminate\Support\Facades\Crypt::encrypt($dec_categorytype);
 ?>
 
@@ -27,7 +27,7 @@
 			<div id="slideParent">
 				<div class="card brand-card rounded-0">
 					<div class="row m-0 card-header justify-content-between">Brand
-						<a class="badge badge-info" data-toggle="collapse" 
+						<a class="badge badge-info" data-toggle="collapse"
 						data-target="#brand" data-parent="#slideParent">
 							<i class="fa fa-arrow-circle-right fa-2x"></i>
 						</a>
@@ -55,19 +55,19 @@
 
 				<div class="card brand-card rounded-0 mt-3">
 					<div class="row m-0 card-header justify-content-between">Price
-						<a class="badge badge-info" data-toggle="collapse" 
+						<a class="badge badge-info" data-toggle="collapse"
 						data-target="#price" data-parent="#slideParent">
 							<i class="fa fa-arrow-circle-right fa-2x"></i>
 						</a>
 					</div>
 					<div class="collapse" id="price">
 						<div class="card-body pt-3">
-								<?php 
+								<?php
 								$price_array = [];
 							?>
 							@foreach($sale_products as $sale_product)
 								<?php
-									
+
 									if($dec_categorytype == 'Smartphone' || $dec_categorytype == 'Tablet' ) {
 										$price = \DB::table('phone_details')
 										->where('model', $sale_product->model)
@@ -107,15 +107,15 @@
 									}
 								?>
 							@endforeach
-							<?php 
+							<?php
 								$unique_parray = array_unique($price_array);
 							?>
 							<ul>
 								@foreach($unique_parray as $u_parray)
-									<?php 
+									<?php
 										$enc_price = Illuminate\Support\Facades\Crypt::encrypt($u_parray);
 									?>
-									<li><a href="{{ url('/show/' . 
+									<li><a href="{{ url('/show/' .
 									$enc_category . '/price/' . $enc_price) }}">
 										{{ $u_parray }}</a></li>
 									<hr>
@@ -128,7 +128,7 @@
 				@if($dec_categorytype == 'Feature' || $dec_categorytype == 'Accessory')
 					<div class="card brand-card rounded-0 mt-3">
 						<div class="row m-0 card-header justify-content-between">Features
-							<a class="badge badge-info" data-toggle="collapse" 
+							<a class="badge badge-info" data-toggle="collapse"
 							data-target="#accessories" data-parent="#slideParent">
 								<i class="fa fa-arrow-circle-right fa-2x"></i>
 							</a>
@@ -137,7 +137,7 @@
 							<div class="card-body pt-3">
 								<ul>
 									@foreach($categorytype_lists as $list)
-										<?php 
+										<?php
 											$enc_list = Illuminate\Support\Facades\Crypt::encrypt($list);
 										?>
 										<li>
@@ -156,37 +156,41 @@
 			</div>
 		</div>
 
-		<div class="col-md-9">	
+		<div class="col-md-9">
 
 			<div class="row">
 				@foreach($new_collection as $new_col)
+					<?php
+						$id = $new_col['id'];
+						$encrypt_id = Crypt::encrypt($id);
+					 ?>
 					<div class="col-md-4">
 						<div class="card text-center parent_card">
   							<div class="image_hover">
-  								<img class="img-fluid image_design" src="{{ asset('/storage/images/' . 
+  								<img class="img-fluid image_design" src="{{ asset('/storage/images/' .
 								  $new_col['image']) }}">
   							</div>
   							<div class="content_price">{{ $new_col['brand'] }} {{ $new_col['model'] }}
 							{{ $new_col['price'] }}</div>	<br>
 
-							<div class="card-block quick_hover">			
+							<div class="card-block quick_hover">
 								<span class="fa fa-heart des pull-left" style="font-size: 13px; color:green;">
-									<a href="{{ '/wishlist-product/' . $new_col['id'] }}" style="color:green
+									<a href="{{ '/wishlist-product/' . $encrypt_id }}" style="color:green
 									; text-decoration:none;"> Wishlist</a>
 								</span>
 								<span class="fa fa-edit des pull-right" style="font-size: 13px; color:green;">
-									<a href="{{ '/detail/' . $new_col['id'] }}" style="color:green
+									<a href="{{ '/detail/' . $encrypt_id }}" style="color:green
 									; text-decoration:none;"> Detail</a>
 								</span>
 								<br>
-								<a href="{{ route('cart.edit', $new_col['id']) }}" class="btn btndesign">
+								<a href="{{ route('cart.edit', $encrypt_id) }}" class="btn btndesign">
 								<i class="fa fa-shopping-cart">&nbsp;&nbsp;&nbsp;Add To Cart</i>
 								</a>
 							</div>
 						</div>
 					</div>
 				@endforeach
-			</div>				
+			</div>
 		</div>
 	</div>
 </div>

@@ -186,6 +186,8 @@
 							->where('model', $new_col['model'])
 							->where('color', $new_col['color'])->value('price');
 						}
+
+						$encrypt_id = Crypt::encrypt($id);
 					?>
 					<div class="col-md-4">
 						<div class="card text-center parent_card mt-3">
@@ -198,15 +200,15 @@
 
 							<div class="card-block quick_hover">
 								<span class="fa fa-heart des pull-left" style="font-size: 13px; color:green;">
-									<a href="{{ '/wishlist-product/' . $id }}" style="color:green
+									<a href="{{ '/wishlist-product/' . $encrypt_id }}" style="color:green
 									; text-decoration:none;"> Wishlist</a>
 								</span>
 								<span class="fa fa-edit des pull-right" style="font-size: 13px; color:green;">
-									<a href="{{ '/detail/' . $id }}" style="color:green
+									<a href="{{ '/detail/' . $encrypt_id }}" style="color:green
 									; text-decoration:none;"> Detail</a>
 								</span>
 								<br>
-								<a href="{{ route('cart.edit', $new_col['id']) }}" class="btn btndesign">
+								<a href="{{ route('cart.edit', $encrypt_id) }}" class="btn btndesign">
 								<i class="fa fa-shopping-cart">&nbsp;&nbsp;&nbsp;Add To Cart</i>
 								</a>
 						    </div>

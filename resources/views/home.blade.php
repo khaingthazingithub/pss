@@ -115,6 +115,7 @@
 					->where('color', $latest_product['color'])->value('price');
 
 					$id = $latest_product->id;
+                         $encrypt_id = Crypt::encrypt($id);
 
 				?>
 				<div class="col-sm-6 col-md-3 mb-3">
@@ -132,15 +133,15 @@
 						<div class="hover-effect">
 							<li>
 								<i class="fa fa-shopping-cart"></i>
-								<a href="{{ route('cart.edit', $id) }}"> Add to cart</a>
+								<a href="{{ route('cart.edit', $encrypt_id) }}"> Add to cart</a>
 							</li>
 							<li>
 								<i class="fa fa-pencil-square-o"></i>
-								<a href="{{ 'detail/' . $id }}"> Detail</a>
+								<a href="{{ 'detail/' . $encrypt_id }}"> Detail</a>
 							</li>
 							<li>
 								<i class="fa fa-heart-o"></i>
-								<a href="{{ '/wishlist-product/' . $id }}"> Wishlist
+								<a href="{{ '/wishlist-product/' . $encrypt_id }}"> Wishlist
 								</a>
 							</li>
 						</div>

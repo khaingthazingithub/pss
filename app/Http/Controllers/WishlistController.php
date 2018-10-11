@@ -69,8 +69,8 @@ class WishlistController extends Controller
      */
     public function edit($id)
     {
-        //
-        $product = SaleProduct::find($id);
+        $decrypt_id = Crypt::decrypt($id);
+        $product = SaleProduct::find($decrypt_id);
         $model = $product->model;
         $color = $product->color;
         if($product->category_type == 'Smartphone' || $product->category_type == 'Tablet') {
@@ -82,9 +82,9 @@ class WishlistController extends Controller
             ->where('color', $color)->value('price');
         }
         $name = $product->category . "," . $product->brand . "," . $product->model. "," . $product->color;
-        Cart::instance('wishlist')->add($id, $name, 1, $price);
-        
-        return back();
+        Cart::instance('wishlist')->add($decrypt_id, $name, 1, $price);
+
+        return redirect("/");
     }
 
     /**

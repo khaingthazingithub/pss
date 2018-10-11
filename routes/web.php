@@ -166,12 +166,6 @@ Route::get('/search', 'SearchController@index');
 // End for backend
 
 
-
-
-
-
-
-
 //Start For Front End
 
 // Logout

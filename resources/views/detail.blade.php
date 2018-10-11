@@ -36,7 +36,7 @@
 
 			<div class="col-md-6">
 				<div class="main-image">
-					<img src="{{ asset('/storage/images/' . $detail->image) }}" alt=""
+					<img src="{{ '/storage/images/' . $detail->image }}" alt=""
 					class="img-fluid">
 				</div>
 				<br>

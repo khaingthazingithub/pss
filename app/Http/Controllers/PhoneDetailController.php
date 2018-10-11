@@ -131,8 +131,8 @@ class PhoneDetailController extends Controller
 
      public function show($id)
      {
-          //
-          $product = SaleProduct::find($id);
+          $decrypt_id = Crypt::decrypt($id);
+          $product = SaleProduct::find($decrypt_id);
           $category_type = $product->category_type;
           $brand = $product->brand;
           $model = $product->model;

@@ -1,4 +1,4 @@
-@extends('layouts.master')	
+@extends('layouts.master')
 
 @section('title', 'Smart Phone')
 
@@ -13,7 +13,7 @@
 	}
 </style>
 
-<?php 
+<?php
 	$enc_category = Illuminate\Support\Facades\Crypt::encrypt($dec_categorytype);
 ?>
 <div class="container-fluid mt-3 mb-5">
@@ -34,12 +34,12 @@
 						<div class="card-body pt-3">
 							<ul>
                                 @foreach($unique_brand as $u_brand)
-									<?php 
+									<?php
 										$enc_brand = Illuminate\Support\Facades\Crypt::encrypt($u_brand['brand']);
 									?>
 
                                     <li>
-                                        <a href="{{ url('/show/'. $enc_category . '/' . 
+                                        <a href="{{ url('/show/'. $enc_category . '/' .
 										$enc_brand) }}">{{ $u_brand['brand'] }}</a>
 								    <li>
                                     <hr>
@@ -57,7 +57,7 @@
 					</div>
 					<div class="collapse" id="price">
 						<div class="card-body pt-3">
-							<?php 
+							<?php
 								$price_array = [];
 							?>
 							@foreach($new_collection as $new_col)
@@ -100,13 +100,13 @@
 									}
 								?>
 							@endforeach
-							<?php 
+							<?php
 								$unique_parray = [];
 								$unique_parray = array_unique($price_array);
 							?>
 							<ul>
 								@foreach($unique_parray as $u_parray)
-									<?php 
+									<?php
 										$enc_price = Illuminate\Support\Facades\Crypt::encrypt($u_parray);
 									?>
 									<li><a href="{{ url('/show/' . $enc_category . '/price/' . $enc_price) }}">
@@ -129,10 +129,10 @@
 							<div class="card-body pt-3">
 								<ul>
 									@foreach($unique_category as $u_category)
-									<?php 
+									<?php
 										$enc_ucategory = Illuminate\Support\Facades\Crypt::encrypt($u_category['category']);
 									?>
-									<li><a href="{{ url('/show/' . $enc_category . '/' .  
+									<li><a href="{{ url('/show/' . $enc_category . '/' .
 									$enc_ucategory) }}">
 										{{ $u_category['category'] }}</a></li>
 									<hr>
@@ -154,7 +154,7 @@
 							<div class="card-body pt-3">
 								<ul>
 									@foreach($unique_category as $u_category)
-										<?php 
+										<?php
 											$enc_ucategory = Illuminate\Support\Facades\Crypt::encrypt($u_category['category']);
 										?>
 										<li><a href="{{ url('/show/' . $enc_category . '/' .
@@ -171,10 +171,11 @@
 			</div>
 		</div>
 
-		<div class="col-md-9">	
+		<div class="col-md-9">
 			<div class="row">
                 @foreach($new_collection as $new_col)
-					<?php 
+					<?php
+						$id = $new_col['id'];
 						if($new_col['category_type'] == 'Smartphone' || $new_col['category_type'] == 'Tablet') {
 							$price = \DB::table('phone_details')
 							->where('model', $new_col['model'])
@@ -185,6 +186,7 @@
 							->where('model', $new_col['model'])
 							->where('color', $new_col['color'])->value('price');
 						}
+						$encrypt_id = Crypt::encrypt($id);
 					?>
 					<div class="col-md-4">
 						<div class="card text-center parent_card">
@@ -195,24 +197,24 @@
                               {{ $new_col['price'] }}
                               </div>	<br>
 
-							<div class="card-block quick_hover">			
+							<div class="card-block quick_hover">
 								<span class="fa fa-heart des pull-left" style="font-size: 13px; color:green;">
-									<a href="{{ '/wishlist-product/' . $new_col['id']}}" style="color:green
+									<a href="{{ '/wishlist-product/' . $encrypt_id}}" style="color:green
 									; text-decoration:none;"> Wishlist</a>
 								</span>
 								<span class="fa fa-edit des pull-right" style="font-size: 13px; color:green;">
-									<a href="{{ '/detail/' . $new_col['id'] }}" style="color:green
+									<a href="{{ '/detail/' . $encrypt_id }}" style="color:green
 									; text-decoration:none;"> Detail</a>
 								</span>
 								<br>
-								<a href="{{ route('cart.edit', $new_col['id']) }}" class="btn btndesign">
+								<a href="{{ route('cart.edit', $encrypt_id) }}" class="btn btndesign">
 								<i class="fa fa-shopping-cart">&nbsp;&nbsp;&nbsp;Add To Cart</i>
 								</a>
 						    </div>
 						</div>
 					</div>
                 @endforeach
-			</div>				
+			</div>
 		</div>
 	</div>
 </div>

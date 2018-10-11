@@ -44,8 +44,8 @@ class CartController extends Controller
 
     public function edit($id)
     {
-        //
-        $product = SaleProduct::find($id);
+        $decrypt_id = Crypt::decrypt($id);
+        $product = SaleProduct::find($decrypt_id);
         $model = $product->model;
         $color = $product->color;
         if($product->category_type == 'Smartphone' || $product->category_type == 'Tablet') {
@@ -56,7 +56,7 @@ class CartController extends Controller
         }
         $name = $product->category.",".$product->brand.",".$product->model.",".
         $product->color;
-        Cart::add($id, $name, 1, $price);
+        Cart::add($decrypt_id, $name, 1, $price);
         // Cart::instance('wishlist')->destroy();
 
         return redirect("/");
