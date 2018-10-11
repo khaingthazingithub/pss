@@ -20,7 +20,7 @@ class HomeController extends Controller
         // $this->middleware('auth');
         $saleproducts = SaleProduct::all();
         foreach($saleproducts as $saleproduct) {
-            if($saleproduct->quantity == 0 ) {
+            if($saleproduct->quantity < 0 ) {
                 SaleProduct::destroy($saleproduct->id);
             }
         }

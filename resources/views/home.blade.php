@@ -6,39 +6,7 @@
 
 <style>
 
-	.homebody {
-		padding: 0;
-		padding-top: 100px;
-		background: linear-gradient(0deg, rgba(255, 255, 255, 0.1),
-		  rgba(255, 255, 255, 0.1)), url('{{ asset('image/bg1.jpg') }}');
-		background-size: cover;
-		background-attachment: fixed;
-	}
 
-	.category-con {
-		background-color: rgba(0, 0, 0, 0.1);
-		color: white;
-	}
-
-	.discount {
-		background-color: rgba(0, 0, 0, 0.1);
-	}
-
-	.feature {
-		background-color: rgba(0, 0, 0, 0.1);
-	}
-
-	.latest-card {
-		background-color: rgba(255, 255, 255, 0.5);
-	}
-
-	.popular-card {
-		background-color: rgba(255, 255, 255, 0.5);
-	}
-
-	.feature-card {
-		background-color: rgba(255, 255, 255, 0.5);
-	}
 
 </style>
 
@@ -152,7 +120,7 @@
 				<div class="col-sm-6 col-md-3 mb-3">
 					<div class="card latest border-0 latest-card">
 						<div class="card-body text-center pb-3">
-							<img src="{{ '../../storage/images/'.$latest_product->image }}"
+							<img src="{{ '/storage/images/'.$latest_product->image }}"
 							alt="" class="img-fluid">
 							<hr>
 							<div class="row container justify-content-between m-0">
@@ -204,7 +172,7 @@
 				<div class="col-sm-6 col-md-3 mb-3">
 					<div class="card latest border-0 popular-card">
 						<div class="card-body text-center pb-3">
-							<img src="{{ asset('storage/images/' . $popular_product['image']) }}" alt="" class="img-fluid">
+							<img src="{{ '/storage/images/' . $popular_product['image'] }}" alt="" class="img-fluid">
 							<hr>
 							<div class="row container justify-content-between m-0">
 								<h5>{{ $popular_product['brand'] }}</h5>
@@ -251,7 +219,7 @@
 				<div class="card border-0 feature-card pt-3">
 					<div class="row">
 						<div class="col-md-6 text-center pb-3 pt-3">
-							<img src="{{ asset('/storage/images/' . $feature_product->image) }}" id="image">
+							<img src="{{ '/storage/images/' . $feature_product->image }}" id="image">
 						</div>
 						<div class="col-md-6 pb-3 pt-3">
 							<h5 class="des">{{ $feature_product->brand }}</h5>

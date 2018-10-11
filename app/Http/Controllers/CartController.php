@@ -134,6 +134,6 @@ class CartController extends Controller
             Cart::instance('wishlist')->destroy();
         }
 
-        return redirect('/home');
+        return redirect('/');
     }
 }

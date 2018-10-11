@@ -200,6 +200,42 @@
 }
 /* end navigation */
 
+/* start home */
+.homebody {
+     padding: 0;
+     padding-top: 100px;
+     background: linear-gradient(rgba(255, 255, 255, 0.1),
+       rgba(255, 255, 255, 0.1)), url('/image/bg1.jpg');
+     background-size: cover;
+     background-attachment: fixed;
+}
+
+.category-con {
+     background-color: rgba(0, 0, 0, 0.1);
+     color: white;
+}
+
+.discount {
+     background-color: rgba(0, 0, 0, 0.1);
+}
+
+.feature {
+     background-color: rgba(0, 0, 0, 0.1);
+}
+
+.latest-card {
+     background-color: rgba(255, 255, 255, 0.5);
+}
+
+.popular-card {
+     background-color: rgba(255, 255, 255, 0.5);
+}
+
+.feature-card {
+     background-color: rgba(255, 255, 255, 0.5);
+}
+/* end home */
+
 /*start smart phone*/
 
 .category-text {
